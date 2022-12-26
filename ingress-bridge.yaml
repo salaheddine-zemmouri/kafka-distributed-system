@@ -12,6 +12,6 @@ spec:
               service:
                 name: strimzi-kafka-bridge-bridge-service
                 port:
-                  number: 8080   
+                  number: 80   
 
 
