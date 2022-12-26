@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: kafka-bridge-ingress
+  name: ngnix-ingress
 spec:
   rules:
       - http:
@@ -10,8 +10,8 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: strimzi-kafka-bridge-bridge-service
+                name: ngnix
                 port:
-                  number: 8080   
+                  number: 80
 
 
