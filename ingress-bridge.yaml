@@ -10,7 +10,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: ngnix
+                name: nginx
                 port:
                   number: 80
 
