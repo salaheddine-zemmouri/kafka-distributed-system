@@ -1,0 +1,23 @@
+apiVersion: kafka.strimzi.io/v1alpha1
+kind: KafkaConnector
+metadata:
+  name: elasticsearch-sink-connector
+  labels:
+    strimzi.io/cluster: kafka-connect-cluster
+spec:
+  class: org.apache.camel.kafkaconnector.CamelSourceConnector
+  tasksMax: 1
+  config:
+    connector.class: org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector
+    key.converter: org.apache.kafka.connect.storage.StringConverter
+    value.converter: org.apache.kafka.connect.storage.StringConverter
+    camel.kamelet.elasticsearch-index-sink.user: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.user}
+    camel.kamelet.elasticsearch-index-sink.password: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.password}
+    camel.kamelet.elasticsearch-index-sink.enableSSL: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.enableSSL}
+    camel.kamelet.elasticsearch-index-sink.hostAddresses: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.hostAddresses}
+    camel.kamelet.elasticsearch-index-sink.clusterName: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.clusterName}
+    camel.kamelet.elasticsearch-index-sink.indexName: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.indexName}
+
+
+
+
