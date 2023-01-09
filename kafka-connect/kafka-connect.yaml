@@ -7,15 +7,14 @@ metadata:
 spec:
   image: mrs.ocir.io/axlykghcitkw/camel-kafkaconnect
   replicas: 1
-  bootstrapServers: my-cluster-kafka-bootstrap.kafka:9093
+  bootstrapServers: my-cluster-kafka-bootstrap.kafka:9092
   config:
-    config.storage.replication.factor: 1
-    offset.storage.replication.factor: 1
-    status.storage.replication.factor: 1
-    config.providers: file
-    config.providers.file.class:  org.apache.kafka.common.config.provider.FileConfigProvider
-  externalConfiguration:
-    volumes:
-      - name: connector-config
-        configMap:
-          name: elastic-connector-config
+    group.id: my-connect-cluster
+    offset.storage.topic: my-connect-cluster-offsets
+    config.storage.topic: my-connect-cluster-configs
+    status.storage.topic: my-connect-cluster-status
+    config.storage.replication.factor: 3
+    offset.storage.replication.factor: 3
+    status.storage.replication.factor: 3
+    key.converter: org.apache.kafka.connect.storage.StringConverter
+    value.converter: org.apache.kafka.connect.storage.StringConverter

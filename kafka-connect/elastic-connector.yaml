@@ -9,15 +9,13 @@ spec:
   tasksMax: 1
   config:
     connector.class: org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector
-    key.converter: org.apache.kafka.connect.storage.StringConverter
-    value.converter: org.apache.kafka.connect.storage.StringConverter
-    camel.kamelet.elasticsearch-index-sink.user: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.user}
-    camel.kamelet.elasticsearch-index-sink.password: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.password}
-    camel.kamelet.elasticsearch-index-sink.enableSSL: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.enableSSL}
-    camel.kamelet.elasticsearch-index-sink.hostAddresses: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.hostAddresses}
-    camel.kamelet.elasticsearch-index-sink.clusterName: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.clusterName}
-    camel.kamelet.elasticsearch-index-sink.indexName: ${file:/opt/kafka/external-configuration/connector-config/elastic-kafka-connector.properties:camel.kamelet.elasticsearch-index-sink.indexName}
-
+    
+    camel.kamelet.elasticsearch-index-sink.user: elastic
+    camel.kamelet.elasticsearch-index-sink.password: 4zzQ1tW4VR049emXp1y8ee17
+    camel.kamelet.elasticsearch-index-sink.enableSSL: true
+    camel.kamelet.elasticsearch-index-sink.hostAddresses: https://kafka-elastic-es-http.elastic:9200
+    camel.kamelet.elasticsearch-index-sink.clusterName: kafka-elastic
+    camel.kamelet.elasticsearch-index-sink.indexName: kafka
 
 
 
