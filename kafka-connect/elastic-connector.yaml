@@ -9,7 +9,8 @@ spec:
   tasksMax: 1
   config:
     connector.class: org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector
-    
+    topics: "my-topic"
+    tasks.max: "1"
     camel.kamelet.elasticsearch-index-sink.user: elastic
     camel.kamelet.elasticsearch-index-sink.password: 4zzQ1tW4VR049emXp1y8ee17
     camel.kamelet.elasticsearch-index-sink.enableSSL: true
