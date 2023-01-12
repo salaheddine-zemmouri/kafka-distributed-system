@@ -5,7 +5,7 @@ metadata:
   labels:
     strimzi.io/cluster: kafka-connect-cluster
 spec:
-  class: org.apache.camel.kafkaconnector.CamelSourceConnector
+  class: org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector
   tasksMax: 1
   config:
     connector.class: org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector
