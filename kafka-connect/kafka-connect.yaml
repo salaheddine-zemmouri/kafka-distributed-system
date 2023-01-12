@@ -16,3 +16,5 @@ spec:
     config.storage.replication.factor: 3
     offset.storage.replication.factor: 3
     status.storage.replication.factor: 3
+    key.converter: org.apache.kafka.connect.storage.JsonConverter
+    value.converter: org.apache.kafka.connect.storage.JsonConverter
