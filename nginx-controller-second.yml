@@ -17,7 +17,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -29,7 +29,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-admission
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -41,7 +41,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 rules:
 - apiGroups:
   - ""
@@ -146,7 +146,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-admission
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 rules:
 - apiGroups:
   - ""
@@ -266,7 +266,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -274,7 +274,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: ingress-nginx
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -286,7 +286,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-admission
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -294,7 +294,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: ingress-nginx-admission
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -312,7 +312,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: ingress-nginx
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -331,7 +331,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: ingress-nginx-admission
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 ---
 apiVersion: v1
 data:
@@ -345,7 +345,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-controller
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 ---
 apiVersion: v1
 kind: Service
@@ -357,7 +357,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-controller
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 spec:
   externalTrafficPolicy: Local
   ipFamilies:
@@ -390,7 +390,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-controller-admission
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 spec:
   ports:
   - appProtocol: https
@@ -413,7 +413,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-controller
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 spec:
   minReadySeconds: 0
   revisionHistoryLimit: 10
@@ -525,7 +525,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-admission-create
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 spec:
   template:
     metadata:
@@ -572,7 +572,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.5.1
   name: ingress-nginx-admission-patch
-  namepace: ingress-nginx-second
+  namespace: ingress-nginx-second
 spec:
   template:
     metadata:
@@ -640,7 +640,7 @@ webhooks:
   clientConfig:
     service:
       name: ingress-nginx-controller-admission
-      namepace: ingress-nginx-second
+      namespace: ingress-nginx-second
       path: /networking/v1/ingresses
   failurePolicy: Fail
   matchPolicy: Equivalent
